@@ -2,9 +2,11 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "beautiful": "lint-staged",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss --output src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,10 +23,19 @@
     "url": "https://github.com/Born-To-Try-05/nodejs_blog/issues"
   },
   "homepage": "https://github.com/Born-To-Try-05/nodejs_blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
   }
 }
